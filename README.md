@@ -8,4 +8,3 @@ Static website for `principiaresearch.ie`.
 - Build command: `echo "No build step required"`
 - Publish directory: `.`
 - Custom domain: `principiaresearch.ie`
-
