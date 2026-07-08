@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principia Capital Partners | Private Investment Firm in Ireland</title>
+<meta name="description" content="Principia Capital Partners is a Dublin-based private investment firm acquiring and scaling Ireland's finest owner-managed businesses.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Principia Capital Partners">
+<meta name="keywords" content="Principia Capital, Principia Capital Partners, Principia Capital Ireland, private investment firm Ireland, Dublin private equity, Irish SME succession">
+<link rel="canonical" href="https://principiacapital.ie/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://principiacapital.ie/">
+<meta property="og:site_name" content="Principia Capital Partners">
+<meta property="og:title" content="Principia Capital Partners | Private Investment Firm in Ireland">
+<meta property="og:description" content="A Dublin-based private investment firm acquiring and scaling Ireland's finest owner-managed businesses.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Principia Capital Partners | Private Investment Firm in Ireland">
+<meta name="twitter:description" content="A Dublin-based private investment firm acquiring and scaling Ireland's finest owner-managed businesses.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Principia Capital Partners",
+  "alternateName": [
+    "Principia Capital",
+    "Principia Capital Ireland"
+  ],
+  "url": "https://principiacapital.ie/",
+  "email": "info@principiacapital.ie",
+  "description": "Principia Capital Partners is a Dublin-based private investment firm acquiring and scaling Ireland's finest owner-managed businesses.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  },
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Dublin, Ireland"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #001540;
+    --navy-mid: #0A2360;
+    --ivory: #F8F8F7;
+    --warm: #F2EDE6;
+    --gold: #C9A84C;
+    --dark: #1a1a18;
+    --mid: #555048;
+    --light: #9a9488;
+    --rule: #D8D4CC;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ivory);
+    color: var(--dark);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px;
+    background: transparent;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+
+  nav.scrolled {
+    background: rgba(248,248,247,0.96);
+    backdrop-filter: blur(8px);
+    padding: 18px 60px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 48px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 60px 80px;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(0,21,64,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-p-mark {
+    font-family: 'EB Garamond', serif;
+    font-size: 420px;
+    color: var(--navy);
+    line-height: 1;
+    opacity: 0.05;
+    position: absolute;
+    bottom: -60px;
+    right: -40px;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(52px, 7vw, 88px);
+    color: var(--navy);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-rule span {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-rule-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: var(--mid);
+    max-width: 560px;
+    margin: 0 auto 20px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ivory);
+    background: var(--navy);
+    padding: 16px 48px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.1s forwards;
+  }
+
+  .hero-cta:hover {
+    background: var(--navy-mid);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--light);
+    opacity: 0;
+    animation: fadeUp 1s ease 1.5s forwards;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--rule);
+    margin: 0;
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 120px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 80px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4vw, 52px);
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .about-left .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+  }
+
+  .about-right p {
+    font-size: 18px;
+    color: var(--mid);
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+
+  .about-right p:last-child { margin-bottom: 0; }
+
+  /* ── STATS ── */
+  .stats-band {
+    background: var(--navy);
+    padding: 80px 60px;
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 56px;
+    color: var(--ivory);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(248,248,247,0.45);
+  }
+
+  .stat-rule {
+    width: 1px;
+    background: rgba(248,248,247,0.15);
+    align-self: stretch;
+    margin: auto;
+    display: none;
+  }
+
+  /* ── APPROACH ── */
+  #approach {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 60px;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .approach-card {
+    background: var(--ivory);
+    padding: 56px 48px;
+    transition: background 0.3s;
+  }
+
+  .approach-card:hover { background: var(--warm); }
+
+  .approach-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .approach-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .approach-card p {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.75;
+  }
+
+  /* ── TEAM ── */
+  #team {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 60px;
+  }
+
+  .team-card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    align-items: start;
+    padding: 60px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .team-card:last-child { border-bottom: 1px solid var(--rule); }
+
+  .team-initial {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--rule);
+  }
+
+  .team-initial span {
+    font-family: 'EB Garamond', serif;
+    font-size: 72px;
+    color: var(--navy);
+    opacity: 0.7;
+  }
+
+  .team-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 32px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .team-info .role {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .team-info p {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 560px;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy);
+    padding: 120px 60px;
+    text-align: center;
+  }
+
+  #contact .section-label {
+    color: rgba(248,248,247,0.3);
+    justify-content: center;
+  }
+
+  #contact .section-label::after { display: none; }
+
+  #contact h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4vw, 56px);
+    color: var(--ivory);
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  #contact p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: rgba(248,248,247,0.5);
+    margin-bottom: 56px;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-decoration: none;
+    padding: 16px 48px;
+    border: 1px solid rgba(248,248,247,0.25);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .contact-link.primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+
+  .contact-link.primary:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(248,248,247,0.08);
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .f-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(248,248,247,0.3);
+  }
+
+  footer .f-latin {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(248,248,247,0.2);
+    letter-spacing: 1px;
+  }
+
+  footer .f-copy {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    color: rgba(248,248,247,0.2);
+    letter-spacing: 1px;
+  }
+
+  /* ── BOTANICAL DIVIDER ── */
+  .botanical-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    height: 48px;
+    background: var(--ivory);
+  }
+
+  .botanical-divider svg {
+    opacity: 0.45;
+  }
+
+  /* ── ARCHITECTURAL WATERMARK ── */
+  #about {
+    position: relative;
+  }
+
+  .arch-watermark {
+    position: absolute;
+    right: -20px;
+    bottom: 40px;
+    opacity: 0.04;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── MOBILE NAV ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--navy);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 16px 24px; }
+
+    .hamburger { display: flex; }
+
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--ivory);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      z-index: 99;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links a {
+      font-size: 16px;
+      letter-spacing: 4px;
+    }
+
+    .hero { padding: 100px 24px 60px; }
+    .hero-title { font-size: clamp(48px, 12vw, 72px); }
+
+    section { padding: 80px 24px; }
+
+    #about {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+    }
+
+    .business-owners-section {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+    }
+
+    .stats-band { padding: 60px 24px; }
+    .stats-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+
+    .approach-grid { grid-template-columns: 1fr !important; }
+
+    .team-card { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .team-initial { width: 120px !important; height: 120px !important; }
+    .team-initial span { font-size: 48px !important; }
+
+    #contact { padding: 80px 24px !important; }
+
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
+
+    .contact-links { flex-direction: column; align-items: center; }
+
+    form { padding: 0 !important; }
+    form > div:first-child { grid-template-columns: 1fr !important; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Principia Capital</a>
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-p-mark">P</div>
+  
+  <h1 class="hero-title">Principia<br>Capital</h1>
+  <div class="hero-rule">
+    <span></span>
+    <div class="hero-rule-dot"></div>
+    <span></span>
+  </div>
+  <p class="hero-sub">Acquiring and scaling Ireland's finest owner-managed businesses</p>
+  <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:17px;color:var(--light);letter-spacing:1px;margin-bottom:20px;opacity:0;animation:fadeUp 1s ease 1s forwards;"><em>Ex Principiis</em> &nbsp;&mdash;&nbsp; From First Principles</p>
+  <a href="#contact" class="hero-cta">Get in Touch</a>
+  <div class="hero-scroll">Scroll</div>
+</div>
+
+<div class="botanical-divider">
+  <svg width="320" height="28" viewBox="0 0 320 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- left line -->
+    <line x1="0" y1="14" x2="108" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+    <!-- left leaf cluster -->
+    <path d="M112 14 C114 10 118 8 121 10 C118 11 116 13 115 14 C116 15 118 17 121 18 C118 20 114 18 112 14Z" fill="#C9A84C"/>
+    <path d="M116 14 C117 9 122 7 125 10 C122 11 119 13 118 14 C119 15 122 17 125 18 C122 21 117 19 116 14Z" fill="#C9A84C" opacity="0.6"/>
+    <!-- centre ornament -->
+    <circle cx="160" cy="14" r="2.5" fill="#C9A84C"/>
+    <circle cx="160" cy="14" r="5" stroke="#C9A84C" stroke-width="0.5" fill="none"/>
+    <path d="M150 14 L155 9 M150 14 L155 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <path d="M170 14 L165 9 M170 14 L165 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <!-- right leaf cluster -->
+    <path d="M204 14 C202 10 198 8 195 10 C198 11 200 13 201 14 C200 15 198 17 195 18 C198 20 202 18 204 14Z" fill="#C9A84C"/>
+    <path d="M200 14 C199 9 194 7 191 10 C194 11 197 13 198 14 C197 15 194 17 191 18 C194 21 199 19 200 14Z" fill="#C9A84C" opacity="0.6"/>
+    <!-- right line -->
+    <line x1="208" y1="14" x2="320" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+  </svg>
+</div>
+
+<!-- ABOUT -->
+<section id="about" style="max-width:1100px;margin:0 auto;padding:120px 60px;display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start;">
+  <div class="about-left fade-in" style="position:relative;">
+    <!-- Georgian doorway watermark -->
+    <svg class="arch-watermark" width="260" height="340" viewBox="0 0 260 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- doorway arch -->
+      <path d="M60 340 L60 140 Q60 80 130 80 Q200 80 200 140 L200 340" stroke="#001540" stroke-width="3" fill="none"/>
+      <!-- inner arch detail -->
+      <path d="M75 340 L75 145 Q75 95 130 95 Q185 95 185 145 L185 340" stroke="#001540" stroke-width="1.5" fill="none"/>
+      <!-- fanlight -->
+      <path d="M75 145 Q130 95 185 145" stroke="#001540" stroke-width="1.5" fill="none"/>
+      <!-- fanlight spokes -->
+      <line x1="130" y1="145" x2="130" y2="95" stroke="#001540" stroke-width="1"/>
+      <line x1="130" y1="145" x2="100" y2="102" stroke="#001540" stroke-width="1"/>
+      <line x1="130" y1="145" x2="160" y2="102" stroke="#001540" stroke-width="1"/>
+      <line x1="130" y1="145" x2="80" y2="125" stroke="#001540" stroke-width="1"/>
+      <line x1="130" y1="145" x2="180" y2="125" stroke="#001540" stroke-width="1"/>
+      <!-- columns -->
+      <rect x="52" y="160" width="16" height="180" stroke="#001540" stroke-width="1.5" fill="none"/>
+      <rect x="192" y="160" width="16" height="180" stroke="#001540" stroke-width="1.5" fill="none"/>
+      <!-- column caps -->
+      <rect x="46" y="155" width="28" height="8" stroke="#001540" stroke-width="1.5" fill="none"/>
+      <rect x="186" y="155" width="28" height="8" stroke="#001540" stroke-width="1.5" fill="none"/>
+      <!-- steps -->
+      <rect x="30" y="330" width="200" height="8" stroke="#001540" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="336" width="220" height="6" stroke="#001540" stroke-width="1" fill="none"/>
+      <!-- door panels -->
+      <rect x="90" y="200" width="35" height="50" stroke="#001540" stroke-width="1" fill="none"/>
+      <rect x="135" y="200" width="35" height="50" stroke="#001540" stroke-width="1" fill="none"/>
+      <rect x="90" y="260" width="35" height="65" stroke="#001540" stroke-width="1" fill="none"/>
+      <rect x="135" y="260" width="35" height="65" stroke="#001540" stroke-width="1" fill="none"/>
+      <!-- door knocker -->
+      <circle cx="128" cy="235" r="3" stroke="#001540" stroke-width="1" fill="none"/>
+      <circle cx="132" cy="235" r="3" stroke="#001540" stroke-width="1" fill="none"/>
+    </svg>
+    <div class="section-label">About</div>
+    <h2>From<br>First<br>Principles</h2>
+    <p class="tagline" style="margin-top:20px;">Ex Principiis</p>
+  </div>
+  <div class="about-right fade-in">
+    <p>Principia Capital is a Dublin-based private investment firm taking a first principles approach to long-term capital.</p>
+    <p>Principia acquires quality assets on a diversified basis, applying a prudent capital structure designed to navigate economic, legislative and structural cycles. Asset quality and capital discipline are the conditions upon which the firm is built.</p>
+    <p>Our focus is Ireland’s SME succession opportunity — over 90,000 owner-managed businesses whose founders seek a trusted succession pathway. We deploy compassionate capital into this gap with a focus on sustainable long-term value creation, powered by proprietary dual engine AI infrastructure.</p>
+  </div>
+</section>
+
+<div class="botanical-divider">
+  <svg width="320" height="28" viewBox="0 0 320 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- left line -->
+    <line x1="0" y1="14" x2="108" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+    <!-- left leaf cluster -->
+    <path d="M112 14 C114 10 118 8 121 10 C118 11 116 13 115 14 C116 15 118 17 121 18 C118 20 114 18 112 14Z" fill="#C9A84C"/>
+    <path d="M116 14 C117 9 122 7 125 10 C122 11 119 13 118 14 C119 15 122 17 125 18 C122 21 117 19 116 14Z" fill="#C9A84C" opacity="0.6"/>
+    <!-- centre ornament -->
+    <circle cx="160" cy="14" r="2.5" fill="#C9A84C"/>
+    <circle cx="160" cy="14" r="5" stroke="#C9A84C" stroke-width="0.5" fill="none"/>
+    <path d="M150 14 L155 9 M150 14 L155 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <path d="M170 14 L165 9 M170 14 L165 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <!-- right leaf cluster -->
+    <path d="M204 14 C202 10 198 8 195 10 C198 11 200 13 201 14 C200 15 198 17 195 18 C198 20 202 18 204 14Z" fill="#C9A84C"/>
+    <path d="M200 14 C199 9 194 7 191 10 C194 11 197 13 198 14 C197 15 194 17 191 18 C194 21 199 19 200 14Z" fill="#C9A84C" opacity="0.6"/>
+    <!-- right line -->
+    <line x1="208" y1="14" x2="320" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+  </svg>
+</div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="fade-in">
+      <div class="stat-num">90,000+</div>
+      <div class="stat-label">Irish SMEs Facing Succession</div>
+    </div>
+    <div class="fade-in">
+      <div class="stat-num">3–5x</div>
+      <div class="stat-label">Acquisition Multiple</div>
+    </div>
+    <div class="fade-in">
+      <div class="stat-num">€500k–€2m</div>
+      <div class="stat-label">Target EBITDA</div>
+    </div>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<section id="approach" style="max-width:1100px;margin:0 auto;padding:120px 60px;">
+  <div class="section-label fade-in">Our Approach</div>
+  <div class="approach-grid fade-in">
+    <div class="approach-card">
+      <span class="approach-num">01</span>
+      <h3>Micro Engine</h3>
+      <p>Continuous data ingestion from industry standard databases and proprietary nontraditional sources — scoring and prioritising acquisition targets at a scale no traditional team can match.</p>
+    </div>
+    <div class="approach-card">
+      <span class="approach-num">02</span>
+      <h3>Macro Engine</h3>
+      <p>A domain-specific AI agent monitors macro catalysts — including legislative developments in the Houses of the Oireachtas, regulatory shifts and sectoral policy changes — in real time, identifying sector tailwinds.</p>
+    </div>
+    <div class="approach-card">
+      <span class="approach-num">03</span>
+      <h3>Direct Origination</h3>
+      <p>We approach owners directly — before advisors are appointed and before competitive processes begin. Our pipeline exists entirely outside of on-market sales processes.</p>
+    </div>
+    <div class="approach-card">
+      <span class="approach-num">04</span>
+      <h3>Value Creation</h3>
+      <p>Post-acquisition we deploy technology and operational expertise to enhance the businesses we acquire — targeting sectors structurally positioned to benefit from AI development.</p>
+    </div>
+  </div>
+</section>
+
+<div class="botanical-divider">
+  <svg width="320" height="28" viewBox="0 0 320 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- left line -->
+    <line x1="0" y1="14" x2="108" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+    <!-- left leaf cluster -->
+    <path d="M112 14 C114 10 118 8 121 10 C118 11 116 13 115 14 C116 15 118 17 121 18 C118 20 114 18 112 14Z" fill="#C9A84C"/>
+    <path d="M116 14 C117 9 122 7 125 10 C122 11 119 13 118 14 C119 15 122 17 125 18 C122 21 117 19 116 14Z" fill="#C9A84C" opacity="0.6"/>
+    <!-- centre ornament -->
+    <circle cx="160" cy="14" r="2.5" fill="#C9A84C"/>
+    <circle cx="160" cy="14" r="5" stroke="#C9A84C" stroke-width="0.5" fill="none"/>
+    <path d="M150 14 L155 9 M150 14 L155 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <path d="M170 14 L165 9 M170 14 L165 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <!-- right leaf cluster -->
+    <path d="M204 14 C202 10 198 8 195 10 C198 11 200 13 201 14 C200 15 198 17 195 18 C198 20 202 18 204 14Z" fill="#C9A84C"/>
+    <path d="M200 14 C199 9 194 7 191 10 C194 11 197 13 198 14 C197 15 194 17 191 18 C194 21 199 19 200 14Z" fill="#C9A84C" opacity="0.6"/>
+    <!-- right line -->
+    <line x1="208" y1="14" x2="320" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+  </svg>
+</div>
+
+<!-- TEAM -->
+<section id="team" style="max-width:1100px;margin:0 auto;padding:120px 60px;">
+  <div class="section-label fade-in">Team</div>
+
+  <div class="team-card fade-in">
+    <div class="team-initial"><span>D</span></div>
+    <div class="team-info">
+      <h3>Dillon Burke</h3>
+      <span class="role">Founding & Managing Partner</span>
+      <p>BComm, University College Dublin. Dillon has completed advanced studies in private equity and leveraged buyout optimisation at HEC Paris and Advanced Corporate Finance at the London School of Economics, both with First Class Honours. He founded Principia Capital to capitalise on Ireland's SME succession opportunity, developing the firm's proprietary dual engine AI infrastructure and leading all aspects of deal sourcing, execution and investor relations.</p>
+    </div>
+  </div>
+
+  <div class="team-card fade-in" style="margin-top:48px;">
+    <div class="team-initial"><span>Y</span></div>
+    <div class="team-info">
+      <h3>Yash Burman</h3>
+      <span class="role">Chief Data & Quantitative Analyst</span>
+      <p>First Class Honours Master's in Finance from UCD Smurfit and First Class Honours Bachelor's from University of Delhi, 98th percentile. Yash works as an Analyst at Flo-Gas developing financial and econometric models for renewable energy portfolios, applying advanced valuation frameworks including the Black-76 option pricing model. He brings quantitative modelling for projections and scenario analysis, and scalable system design discipline to Principia Capital.</p>
+    </div>
+  </div>
+
+  <div class="team-card fade-in" style="margin-top:48px;">
+    <div class="team-initial"><span>R</span></div>
+    <div class="team-info">
+      <h3>Robert Rafanelli</h3>
+      <span class="role">Head of Macro Research</span>
+      <p>First Class Honours BSc Business from UCD Lochlann Quinn and First Class Honours MSc in Finance from Smurfit. Robert worked at Quadrant asset management in Atlanta, overseeing macroeconomic research including the US and Irish Macroeconomic reports. He brings macroeconomic perspective, research capability, and strategic thinking shaped by multiple competitive victories including the NASA Space Apps Challenge and Oxford Model UN Best Small Delegation.</p>
+    </div>
+  </div>
+
+  <div class="team-card fade-in" style="margin-top:48px;">
+    <div class="team-initial"><span>B</span></div>
+    <div class="team-info">
+      <h3>Benjamin Falkenburg</h3>
+      <span class="role">Head of Machine Learning</span>
+      <p>Mathematics and Statistics, UCD. Member of the Royal Statistical Society. Benjamin is a researcher in machine learning and mathematical modelling, consistently placing in the top 0.1% of global competitions including Kaggle. His work spans Bayesian Game Theory, Riemannian manifold analysis, and Kolmogorov complexity. He brings advanced predictive modelling capability and rigorous statistical frameworks to Principia Capital's quantitative infrastructure.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:72px;" class="fade-in">
+    <div class="section-label" style="margin-bottom:40px;">Advisory Board</div>
+
+    <div class="team-card fade-in" style="margin-top:0;">
+      <div class="team-initial"><span>B</span></div>
+      <div class="team-info">
+        <h3>Barry Murphy</h3>
+        <span class="role">Senior Tax & Legal Advisor</span>
+        <p>Over two decades as Partner in Legal and Tax practice at PwC London (2003–2024), specialising in complex transaction structuring, private equity fund formation, and tax-efficient structures. Now operating as an independent consultant, Barry provides transaction structuring optimisation, carried interest design, and cross-border tax planning.</p>
+      </div>
+    </div>
+
+    <div class="team-card fade-in" style="margin-top:48px;">
+      <div class="team-initial"><span>L</span></div>
+      <div class="team-info">
+        <h3>Liam McKnight</h3>
+        <span class="role">Investment Strategy Advisor</span>
+        <p>Senior portfolio manager and quant lead for Invesco's Fixed Income ETF and Indexed Strategies in London. Previously at PIMCO and RenaissanceRe. CFA charterholder with First Class Honours MSc in Quantitative Finance from UCD Smurfit. Liam provides portfolio construction guidance, quantitative modelling expertise, and scalable investment frameworks.</p>
+      </div>
+    </div>
+
+    <div class="team-card fade-in" style="margin-top:48px;">
+      <div class="team-initial"><span>I</span></div>
+      <div class="team-info">
+        <h3>Ian Higgins</h3>
+        <span class="role">Transaction & Special Situations Advisor</span>
+        <p>One of Ireland's youngest central bank-regulated CEOs, having led a €50 million private equity raise alongside €200 million debt financing. Ian managed a €60 million sales pipeline, recovered over €3 billion in debt, and structured €100 million-plus in deals across Ireland, Europe, and emerging markets. He brings deep transaction expertise and complex negotiation capability.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:72px;" class="fade-in">
+    <div class="section-label" style="margin-bottom:40px;">Professional Partners</div>
+
+    <div class="team-card fade-in" style="margin-top:0;">
+      <div class="team-initial"><span>T</span></div>
+      <div class="team-info">
+        <h3>Tom Dowling</h3>
+        <span class="role">Tax Advisor — PwC</span>
+        <p>Chartered Tax Adviser at PwC with a First Class Honours Bachelor of Civil Law from University College Dublin. Tom specialises in tax advisory to corporate clients and investment funds, providing acquisition and exit tax planning, compliance oversight, and management incentive structuring.</p>
+      </div>
+    </div>
+
+    <div class="team-card fade-in" style="margin-top:48px;">
+      <div class="team-initial"><span>C</span></div>
+      <div class="team-info">
+        <h3>Cian Shaughnessy</h3>
+        <span class="role">Legal Counsel — Turner Solicitors</span>
+        <p>Practising solicitor at Turner Solicitors, Dublin, with experience across civil litigation, real property, probate, and commercial transactions. Cian provides legal due diligence coordination, contract negotiation, real property matters, and general corporate legal support.</p>
+      </div>
+    </div>
+
+    <div class="team-card fade-in" style="margin-top:48px;">
+      <div class="team-initial"><span>D</span></div>
+      <div class="team-info">
+        <h3>Dara Murphy</h3>
+        <span class="role">Quantum Physics Advisor</span>
+        <p>PhD candidate in Theoretical Quantum Physics at UCD, specialising in the thermodynamics of information and energy transfer in quantum networks. Dara's research involves rigorous mathematical simulation of quantum systems and contributes emerging quantum computing insights to Principia Capital's long-term quantitative strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="botanical-divider">
+  <svg width="320" height="28" viewBox="0 0 320 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="14" x2="108" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+    <path d="M112 14 C114 10 118 8 121 10 C118 11 116 13 115 14 C116 15 118 17 121 18 C118 20 114 18 112 14Z" fill="#C9A84C"/>
+    <path d="M116 14 C117 9 122 7 125 10 C122 11 119 13 118 14 C119 15 122 17 125 18 C122 21 117 19 116 14Z" fill="#C9A84C" opacity="0.6"/>
+    <circle cx="160" cy="14" r="2.5" fill="#C9A84C"/>
+    <circle cx="160" cy="14" r="5" stroke="#C9A84C" stroke-width="0.5" fill="none"/>
+    <path d="M150 14 L155 9 M150 14 L155 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <path d="M170 14 L165 9 M170 14 L165 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <path d="M204 14 C202 10 198 8 195 10 C198 11 200 13 201 14 C200 15 198 17 195 18 C198 20 202 18 204 14Z" fill="#C9A84C"/>
+    <path d="M200 14 C199 9 194 7 191 10 C194 11 197 13 198 14 C197 15 194 17 191 18 C194 21 199 19 200 14Z" fill="#C9A84C" opacity="0.6"/>
+    <line x1="208" y1="14" x2="320" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+  </svg>
+</div>
+
+<!-- FOR BUSINESS OWNERS -->
+<section class="business-owners-section" style="max-width:1100px;margin:0 auto;padding:120px 60px;display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start;">
+  <div class="fade-in">
+    <div class="section-label">For Business Owners</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--navy);">Built on<br>Your Terms</h2>
+  </div>
+  <div class="fade-in">
+    <p style="margin-bottom:20px;">The decision to sell a business you have built is rarely straightforward. Whether you are planning your next chapter, seeking a partner to accelerate growth, or simply exploring what the right transition looks like, the process deserves more than a transactional conversation.</p>
+    <p style="margin-bottom:20px;">When we acquire a business, we are acquiring something that works. Our intention is to ensure it continues to work — with the right capital behind it, the right people in place, and a long-term commitment to what you have built.</p>
+    <p style="margin-bottom:20px;">We are not driven by short fund cycles or quick exits. We take positions we intend to hold, and we take the time to understand what matters to the people behind the business — not just the numbers in front of us.</p>
+    <p style="margin-bottom:20px;">If you are considering your options and want a straightforward conversation with people who will take your business seriously, we would welcome the introduction.</p>
+    <p style="font-style:italic;">Every conversation begins in confidence. There is no obligation and no pressure — simply an open discussion about whether there is a fit. We have found that the right transactions begin not with a term sheet but with a conversation between people who understand what is at stake on both sides.</p>
+  </div>
+</section>
+
+<div class="botanical-divider">
+  <svg width="320" height="28" viewBox="0 0 320 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="14" x2="108" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+    <path d="M112 14 C114 10 118 8 121 10 C118 11 116 13 115 14 C116 15 118 17 121 18 C118 20 114 18 112 14Z" fill="#C9A84C"/>
+    <path d="M116 14 C117 9 122 7 125 10 C122 11 119 13 118 14 C119 15 122 17 125 18 C122 21 117 19 116 14Z" fill="#C9A84C" opacity="0.6"/>
+    <circle cx="160" cy="14" r="2.5" fill="#C9A84C"/>
+    <circle cx="160" cy="14" r="5" stroke="#C9A84C" stroke-width="0.5" fill="none"/>
+    <path d="M150 14 L155 9 M150 14 L155 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <path d="M170 14 L165 9 M170 14 L165 19" stroke="#C9A84C" stroke-width="0.6"/>
+    <path d="M204 14 C202 10 198 8 195 10 C198 11 200 13 201 14 C200 15 198 17 195 18 C198 20 202 18 204 14Z" fill="#C9A84C"/>
+    <path d="M200 14 C199 9 194 7 191 10 C194 11 197 13 198 14 C197 15 194 17 191 18 C194 21 199 19 200 14Z" fill="#C9A84C" opacity="0.6"/>
+    <line x1="208" y1="14" x2="320" y2="14" stroke="#C9A84C" stroke-width="0.75"/>
+  </svg>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--navy);padding:120px 60px;text-align:center;max-width:none;margin:0;">
+  <div class="section-label fade-in" style="color:rgba(248,248,247,0.3);justify-content:center;">Contact</div>
+  <h2 class="fade-in" style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4vw,56px);color:var(--ivory);margin-bottom:20px;line-height:1.1;">Let us discuss<br>the opportunity</h2>
+  <p class="fade-in" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:rgba(248,248,247,0.5);margin-bottom:56px;"></p>
+
+  <form class="fade-in" id="contact-form" onsubmit="handleSubmit(event)" style="max-width:560px;margin:0 auto;text-align:left;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+      <div>
+        <label style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(248,248,247,0.4);display:block;margin-bottom:8px;">Name</label>
+        <input type="text" name="name" required placeholder="Your name"
+          style="width:100%;background:rgba(248,248,247,0.06);border:1px solid rgba(248,248,247,0.15);padding:14px 16px;font-family:'EB Garamond',serif;font-size:16px;color:#F8F8F7;outline:none;transition:border-color 0.2s;"
+          onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(248,248,247,0.15)'">
+      </div>
+      <div>
+        <label style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(248,248,247,0.4);display:block;margin-bottom:8px;">Organisation</label>
+        <input type="text" name="organisation" placeholder="Your organisation"
+          style="width:100%;background:rgba(248,248,247,0.06);border:1px solid rgba(248,248,247,0.15);padding:14px 16px;font-family:'EB Garamond',serif;font-size:16px;color:#F8F8F7;outline:none;transition:border-color 0.2s;"
+          onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(248,248,247,0.15)'">
+      </div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <label style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(248,248,247,0.4);display:block;margin-bottom:8px;">Email</label>
+      <input type="email" name="email" required placeholder="Your email address"
+        style="width:100%;background:rgba(248,248,247,0.06);border:1px solid rgba(248,248,247,0.15);padding:14px 16px;font-family:'EB Garamond',serif;font-size:16px;color:#F8F8F7;outline:none;transition:border-color 0.2s;"
+        onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(248,248,247,0.15)'">
+    </div>
+    <div style="margin-bottom:32px;">
+      <label style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(248,248,247,0.4);display:block;margin-bottom:8px;">Message</label>
+      <textarea name="message" required rows="5" placeholder="Your message"
+        style="width:100%;background:rgba(248,248,247,0.06);border:1px solid rgba(248,248,247,0.15);padding:14px 16px;font-family:'EB Garamond',serif;font-size:16px;color:#F8F8F7;outline:none;resize:none;transition:border-color 0.2s;"
+        onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(248,248,247,0.15)'"></textarea>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <button type="submit"
+        style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:#001540;background:#C9A84C;border:none;padding:16px 48px;cursor:pointer;transition:background 0.3s;"
+        onmouseover="this.style.background='#b8962e'" onmouseout="this.style.background='#C9A84C'">Send Message</button>
+      <a href="mailto:info@principiacapital.ie"
+        style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:1px;color:rgba(248,248,247,0.4);text-decoration:none;transition:color 0.2s;"
+        onmouseover="this.style.color='rgba(201,168,76,0.8)'" onmouseout="this.style.color='rgba(248,248,247,0.4)'">
+        or email directly &rarr;
+      </a>
+    </div>
+    <div id="form-success" style="display:none;margin-top:24px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:rgba(201,168,76,0.8);">
+      Thank you. We will be in touch shortly.
+    </div>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-logo">Principia Capital</span>
+  <span class="f-latin">Ex Principiis</span>
+  <span class="f-copy" style="display:flex;gap:24px;align-items:center;">
+    <span>© 2024 Principia Capital. Dublin, Ireland.</span>
+    <a onclick="document.getElementById('privacy-modal').style.display='block'" style="color:rgba(248,248,247,0.3);text-decoration:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:1px;">Privacy Policy</a>
+    <a onclick="document.getElementById('terms-modal').style.display='block'" style="color:rgba(248,248,247,0.3);text-decoration:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:1px;">Terms of Use</a>
+  </span>
+</footer>
+
+<!-- PRIVACY MODAL -->
+<div id="privacy-modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,21,64,0.7);backdrop-filter:blur(4px);overflow-y:auto;">
+  <div style="max-width:760px;margin:60px auto;background:#F8F8F7;padding:64px;position:relative;">
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" style="position:absolute;top:24px;right:32px;background:none;border:none;font-family:'Cormorant Garamond',serif;font-size:28px;color:#555048;cursor:pointer;line-height:1;">&times;</button>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#9a9488;margin-bottom:32px;">Legal</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;color:#001540;margin-bottom:32px;">Privacy Policy</h2>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;"><strong>Last updated: April 2026</strong></p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">Principia Capital (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) is committed to protecting your personal information. This policy explains how we collect, use and store any data you provide when you interact with this website or contact us directly.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">Information We Collect</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">We may collect your name, email address, phone number and any information you voluntarily provide when contacting us. We do not use cookies beyond those strictly necessary for website functionality and we do not use tracking or analytics tools on this site.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">How We Use Your Information</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">Information you provide is used solely to respond to your enquiry or to fulfil obligations in connection with our investment activities. We do not sell, share or transfer your personal data to third parties except where required by law or with your explicit consent.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">Data Retention</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">We retain personal data only for as long as necessary for the purpose for which it was collected or as required by applicable law. You may request deletion of your data at any time by contacting us at info@principiacapital.ie.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">Your Rights</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">Under the General Data Protection Regulation (GDPR) you have the right to access, correct or delete your personal data, to object to processing and to data portability. To exercise any of these rights please contact info@principiacapital.ie.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">Contact</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;">Email: info@principiacapital.ie</p>
+  </div>
+</div>
+
+<!-- TERMS MODAL -->
+<div id="terms-modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,21,64,0.7);backdrop-filter:blur(4px);overflow-y:auto;">
+  <div style="max-width:760px;margin:60px auto;background:#F8F8F7;padding:64px;position:relative;">
+    <button onclick="document.getElementById('terms-modal').style.display='none'" style="position:absolute;top:24px;right:32px;background:none;border:none;font-family:'Cormorant Garamond',serif;font-size:28px;color:#555048;cursor:pointer;line-height:1;">&times;</button>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#9a9488;margin-bottom:32px;">Legal</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;color:#001540;margin-bottom:32px;">Terms of Use</h2>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;"><strong>Last updated: April 2026</strong></p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">By accessing this website you agree to be bound by these Terms of Use. If you do not agree, please do not use this site.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">No Investment Advice</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">Nothing on this website constitutes investment advice, a solicitation or an offer to buy or sell any security or investment product. The information provided is for general informational purposes only. Past performance is not indicative of future results. Any investment involves risk, including the possible loss of principal.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">No Solicitation</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">This website does not constitute a public offering of securities. Any investment opportunities are offered only to eligible investors in accordance with applicable law and by way of direct, private communication.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">Intellectual Property</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">All content on this website including text, design and branding is the property of Principia Capital and may not be reproduced without prior written consent.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">Limitation of Liability</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;margin-bottom:20px;">Principia Capital makes no warranties as to the accuracy or completeness of any information on this website. We accept no liability for any loss or damage arising from reliance on information contained herein.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;color:#001540;margin-bottom:8px;margin-top:28px;">Governing Law</p>
+    <p style="font-family:'EB Garamond',serif;font-size:16px;color:#555048;line-height:1.85;">These terms are governed by the laws of Ireland. Any disputes shall be subject to the exclusive jurisdiction of the Irish courts.</p>
+  </div>
+</div>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function toggleNav() {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  }
+
+  // Close nav when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('hamburger').classList.remove('open');
+      document.getElementById('nav-links').classList.remove('open');
+    });
+  });
+</script>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const name = data.get('name');
+    const org = data.get('organisation');
+    const email = data.get('email');
+    const message = data.get('message');
+    const subject = encodeURIComponent('Principia Capital — Enquiry from ' + name + (org ? ' (' + org + ')' : ''));
+    const body = encodeURIComponent(message + '\n\nFrom: ' + name + (org ? ' | ' + org : '') + '\nEmail: ' + email);
+    window.location.href = 'mailto:info@principiacapital.ie?subject=' + subject + '&body=' + body;
+    document.getElementById('form-success').style.display = 'block';
+    form.reset();
+  }
+</script>
+
+</body>
+</html>

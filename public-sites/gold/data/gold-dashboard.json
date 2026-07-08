@@ -1,0 +1,532 @@
+{
+  "updatedAt": "2026-04-30T15:50:12.582Z",
+  "stale": true,
+  "sources": [
+    {
+      "name": "Twelve Data",
+      "status": "stale"
+    },
+    {
+      "name": "Yahoo Finance proxy",
+      "status": "ok",
+      "updatedAt": "2026-04-30T15:50:12.582Z"
+    },
+    {
+      "name": "Alpha Vantage",
+      "status": "stale"
+    },
+    {
+      "name": "FRED",
+      "status": "ok",
+      "updatedAt": "2026-04-30T15:50:12.582Z"
+    },
+    {
+      "name": "CFTC",
+      "status": "ok",
+      "updatedAt": "2026-04-30T15:50:12.582Z"
+    },
+    {
+      "name": "World Gold Council",
+      "status": "ok",
+      "updatedAt": "2026-03-31T00:00:00.000Z"
+    },
+    {
+      "name": "GitHub Actions cache",
+      "status": "ok",
+      "updatedAt": "2026-04-30T15:50:12.582Z"
+    }
+  ],
+  "overview": {
+    "price": 4627.9,
+    "changePct": -0.019,
+    "bias": "bullish",
+    "summary": "Gold is in a hold state while fundamentals show 3 supportive inputs against 2 headwinds."
+  },
+  "fundamentals": [
+    {
+      "label": "10Y real yield",
+      "value": "1.92%, -0.08 over 20 obs",
+      "tone": "positive",
+      "source": "FRED",
+      "url": "https://fred.stlouisfed.org/series/DFII10"
+    },
+    {
+      "label": "Broad dollar index",
+      "value": "118.73, -2.16 over 20 obs",
+      "tone": "positive",
+      "source": "FRED",
+      "url": "https://fred.stlouisfed.org/series/DTWEXBGS"
+    },
+    {
+      "label": "VIX stress regime",
+      "value": "18.81, +0.64 over 10 obs",
+      "tone": "neutral",
+      "source": "FRED",
+      "url": "https://fred.stlouisfed.org/series/VIXCLS"
+    },
+    {
+      "label": "Effective fed funds",
+      "value": "3.64%",
+      "tone": "neutral",
+      "source": "FRED",
+      "url": "https://fred.stlouisfed.org/series/DFF"
+    },
+    {
+      "label": "CFTC managed money",
+      "value": "92,976 net, -2165 weekly",
+      "tone": "negative",
+      "source": "CFTC",
+      "url": "https://www.cftc.gov/dea/futures/other_sf.htm"
+    },
+    {
+      "label": "Gold ETF flows",
+      "value": "-11.74bn USD",
+      "tone": "negative",
+      "source": "World Gold Council",
+      "url": "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows"
+    },
+    {
+      "label": "ETF holdings",
+      "value": "4,862.2 tonnes",
+      "tone": "neutral",
+      "source": "World Gold Council",
+      "url": "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows"
+    },
+    {
+      "label": "Central bank reserves",
+      "value": "Latest WGC reserve dataset linked",
+      "tone": "positive",
+      "source": "World Gold Council",
+      "url": "https://www.gold.org/goldhub/data/gold-reserves-by-country"
+    }
+  ],
+  "indicator": {
+    "signal": "HOLD",
+    "score": 43,
+    "timeframe": "15M",
+    "modules": [
+      {
+        "label": "EMA 20 / EMA 50 trend",
+        "value": "EMA20 4,632.92 / EMA50 4,582.33",
+        "passed": true
+      },
+      {
+        "label": "Price vs EMAs",
+        "value": "4,627.90 close vs EMA stack",
+        "passed": false
+      },
+      {
+        "label": "EMA 200 regime",
+        "value": "EMA200 4,487.70",
+        "passed": true
+      },
+      {
+        "label": "RSI 14 filter",
+        "value": "RSI 50.81",
+        "passed": true
+      },
+      {
+        "label": "MACD momentum",
+        "value": "Histogram -5.331",
+        "passed": true
+      },
+      {
+        "label": "ADX trend strength",
+        "value": "ADX 13.68",
+        "passed": false
+      },
+      {
+        "label": "ATR volatility",
+        "value": "ATR 13.35",
+        "passed": true
+      }
+    ]
+  },
+  "chart": [
+    {
+      "timestamp": "2026-04-29T16:00:00.000Z",
+      "close": 4572
+    },
+    {
+      "timestamp": "2026-04-29T16:15:00.000Z",
+      "close": 4573.6
+    },
+    {
+      "timestamp": "2026-04-29T16:30:00.000Z",
+      "close": 4563.9
+    },
+    {
+      "timestamp": "2026-04-29T16:45:00.000Z",
+      "close": 4559
+    },
+    {
+      "timestamp": "2026-04-29T17:00:00.000Z",
+      "close": 4564.5
+    },
+    {
+      "timestamp": "2026-04-29T17:15:00.000Z",
+      "close": 4561
+    },
+    {
+      "timestamp": "2026-04-29T17:30:00.000Z",
+      "close": 4559
+    },
+    {
+      "timestamp": "2026-04-29T17:45:00.000Z",
+      "close": 4561.8
+    },
+    {
+      "timestamp": "2026-04-29T18:00:00.000Z",
+      "close": 4539.6
+    },
+    {
+      "timestamp": "2026-04-29T18:15:00.000Z",
+      "close": 4547.5
+    },
+    {
+      "timestamp": "2026-04-29T18:30:00.000Z",
+      "close": 4534.5
+    },
+    {
+      "timestamp": "2026-04-29T18:45:00.000Z",
+      "close": 4552.7
+    },
+    {
+      "timestamp": "2026-04-29T19:00:00.000Z",
+      "close": 4562.1
+    },
+    {
+      "timestamp": "2026-04-29T19:15:00.000Z",
+      "close": 4556.8
+    },
+    {
+      "timestamp": "2026-04-29T19:30:00.000Z",
+      "close": 4552.9
+    },
+    {
+      "timestamp": "2026-04-29T19:45:00.000Z",
+      "close": 4560.8
+    },
+    {
+      "timestamp": "2026-04-29T20:00:00.000Z",
+      "close": 4559.5
+    },
+    {
+      "timestamp": "2026-04-29T20:15:00.000Z",
+      "close": 4556.7
+    },
+    {
+      "timestamp": "2026-04-29T20:30:00.000Z",
+      "close": 4557.7
+    },
+    {
+      "timestamp": "2026-04-29T20:45:00.000Z",
+      "close": 4557.3
+    },
+    {
+      "timestamp": "2026-04-29T21:00:00.000Z",
+      "close": 0
+    },
+    {
+      "timestamp": "2026-04-29T21:15:00.000Z",
+      "close": 0
+    },
+    {
+      "timestamp": "2026-04-29T21:30:00.000Z",
+      "close": 0
+    },
+    {
+      "timestamp": "2026-04-29T21:45:00.000Z",
+      "close": 0
+    },
+    {
+      "timestamp": "2026-04-29T22:00:00.000Z",
+      "close": 4558.5
+    },
+    {
+      "timestamp": "2026-04-29T22:15:00.000Z",
+      "close": 4560.7
+    },
+    {
+      "timestamp": "2026-04-29T22:30:00.000Z",
+      "close": 4560
+    },
+    {
+      "timestamp": "2026-04-29T22:45:00.000Z",
+      "close": 4563.6
+    },
+    {
+      "timestamp": "2026-04-29T23:00:00.000Z",
+      "close": 4565
+    },
+    {
+      "timestamp": "2026-04-29T23:15:00.000Z",
+      "close": 4563.7
+    },
+    {
+      "timestamp": "2026-04-29T23:30:00.000Z",
+      "close": 4566.4
+    },
+    {
+      "timestamp": "2026-04-29T23:45:00.000Z",
+      "close": 4573.8
+    },
+    {
+      "timestamp": "2026-04-30T00:00:00.000Z",
+      "close": 4570
+    },
+    {
+      "timestamp": "2026-04-30T00:15:00.000Z",
+      "close": 4575.9
+    },
+    {
+      "timestamp": "2026-04-30T00:30:00.000Z",
+      "close": 4578.8
+    },
+    {
+      "timestamp": "2026-04-30T00:45:00.000Z",
+      "close": 4582
+    },
+    {
+      "timestamp": "2026-04-30T01:00:00.000Z",
+      "close": 4580.3
+    },
+    {
+      "timestamp": "2026-04-30T01:15:00.000Z",
+      "close": 4591.4
+    },
+    {
+      "timestamp": "2026-04-30T01:30:00.000Z",
+      "close": 4587.9
+    },
+    {
+      "timestamp": "2026-04-30T01:45:00.000Z",
+      "close": 4590.8
+    },
+    {
+      "timestamp": "2026-04-30T02:00:00.000Z",
+      "close": 4591.2
+    },
+    {
+      "timestamp": "2026-04-30T02:15:00.000Z",
+      "close": 4584.4
+    },
+    {
+      "timestamp": "2026-04-30T02:30:00.000Z",
+      "close": 4573.3
+    },
+    {
+      "timestamp": "2026-04-30T02:45:00.000Z",
+      "close": 4576.4
+    },
+    {
+      "timestamp": "2026-04-30T03:00:00.000Z",
+      "close": 4576.7
+    },
+    {
+      "timestamp": "2026-04-30T03:15:00.000Z",
+      "close": 4574.7
+    },
+    {
+      "timestamp": "2026-04-30T03:30:00.000Z",
+      "close": 4572.8
+    },
+    {
+      "timestamp": "2026-04-30T03:45:00.000Z",
+      "close": 4567.9
+    },
+    {
+      "timestamp": "2026-04-30T04:00:00.000Z",
+      "close": 4566.5
+    },
+    {
+      "timestamp": "2026-04-30T04:15:00.000Z",
+      "close": 4558.9
+    },
+    {
+      "timestamp": "2026-04-30T04:30:00.000Z",
+      "close": 4556
+    },
+    {
+      "timestamp": "2026-04-30T04:45:00.000Z",
+      "close": 4553.2
+    },
+    {
+      "timestamp": "2026-04-30T05:00:00.000Z",
+      "close": 4564.1
+    },
+    {
+      "timestamp": "2026-04-30T05:15:00.000Z",
+      "close": 4566.5
+    },
+    {
+      "timestamp": "2026-04-30T05:30:00.000Z",
+      "close": 4575
+    },
+    {
+      "timestamp": "2026-04-30T05:45:00.000Z",
+      "close": 4573.7
+    },
+    {
+      "timestamp": "2026-04-30T06:00:00.000Z",
+      "close": 4577.2
+    },
+    {
+      "timestamp": "2026-04-30T06:15:00.000Z",
+      "close": 4581.7
+    },
+    {
+      "timestamp": "2026-04-30T06:30:00.000Z",
+      "close": 4586.1
+    },
+    {
+      "timestamp": "2026-04-30T06:45:00.000Z",
+      "close": 4601.6
+    },
+    {
+      "timestamp": "2026-04-30T07:00:00.000Z",
+      "close": 4603.5
+    },
+    {
+      "timestamp": "2026-04-30T07:15:00.000Z",
+      "close": 4603.6
+    },
+    {
+      "timestamp": "2026-04-30T07:30:00.000Z",
+      "close": 4608.4
+    },
+    {
+      "timestamp": "2026-04-30T07:45:00.000Z",
+      "close": 4610.6
+    },
+    {
+      "timestamp": "2026-04-30T08:00:00.000Z",
+      "close": 4630.9
+    },
+    {
+      "timestamp": "2026-04-30T08:15:00.000Z",
+      "close": 4629.6
+    },
+    {
+      "timestamp": "2026-04-30T08:30:00.000Z",
+      "close": 4626.7
+    },
+    {
+      "timestamp": "2026-04-30T08:45:00.000Z",
+      "close": 4628.4
+    },
+    {
+      "timestamp": "2026-04-30T09:00:00.000Z",
+      "close": 4631
+    },
+    {
+      "timestamp": "2026-04-30T09:15:00.000Z",
+      "close": 4637.5
+    },
+    {
+      "timestamp": "2026-04-30T09:30:00.000Z",
+      "close": 4631
+    },
+    {
+      "timestamp": "2026-04-30T09:45:00.000Z",
+      "close": 4637.2
+    },
+    {
+      "timestamp": "2026-04-30T10:00:00.000Z",
+      "close": 4638.3
+    },
+    {
+      "timestamp": "2026-04-30T10:15:00.000Z",
+      "close": 4655.6
+    },
+    {
+      "timestamp": "2026-04-30T10:30:00.000Z",
+      "close": 4648.4
+    },
+    {
+      "timestamp": "2026-04-30T10:45:00.000Z",
+      "close": 4651.7
+    },
+    {
+      "timestamp": "2026-04-30T11:00:00.000Z",
+      "close": 4648
+    },
+    {
+      "timestamp": "2026-04-30T11:15:00.000Z",
+      "close": 4650.7
+    },
+    {
+      "timestamp": "2026-04-30T11:30:00.000Z",
+      "close": 4642.9
+    },
+    {
+      "timestamp": "2026-04-30T11:45:00.000Z",
+      "close": 4643
+    },
+    {
+      "timestamp": "2026-04-30T12:00:00.000Z",
+      "close": 4648.3
+    },
+    {
+      "timestamp": "2026-04-30T12:15:00.000Z",
+      "close": 4643.9
+    },
+    {
+      "timestamp": "2026-04-30T12:30:00.000Z",
+      "close": 4638.3
+    },
+    {
+      "timestamp": "2026-04-30T12:45:00.000Z",
+      "close": 4652.4
+    },
+    {
+      "timestamp": "2026-04-30T13:00:00.000Z",
+      "close": 4654
+    },
+    {
+      "timestamp": "2026-04-30T13:15:00.000Z",
+      "close": 4646.1
+    },
+    {
+      "timestamp": "2026-04-30T13:30:00.000Z",
+      "close": 4638.3
+    },
+    {
+      "timestamp": "2026-04-30T13:45:00.000Z",
+      "close": 4623.1
+    },
+    {
+      "timestamp": "2026-04-30T14:00:00.000Z",
+      "close": 4632.8
+    },
+    {
+      "timestamp": "2026-04-30T14:15:00.000Z",
+      "close": 4635.4
+    },
+    {
+      "timestamp": "2026-04-30T14:30:00.000Z",
+      "close": 4630.3
+    },
+    {
+      "timestamp": "2026-04-30T14:45:00.000Z",
+      "close": 4632.5
+    },
+    {
+      "timestamp": "2026-04-30T15:00:00.000Z",
+      "close": 4632.5
+    },
+    {
+      "timestamp": "2026-04-30T15:15:00.000Z",
+      "close": 4635.6
+    },
+    {
+      "timestamp": "2026-04-30T15:30:00.000Z",
+      "close": 4628.8
+    },
+    {
+      "timestamp": "2026-04-30T15:40:10.000Z",
+      "close": 4627.9,
+      "signal": "HOLD"
+    }
+  ]
+}

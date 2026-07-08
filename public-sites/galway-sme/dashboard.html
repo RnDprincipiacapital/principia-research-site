@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galway SME Intelligence Dashboard | Principia Capital Partners</title>
+<meta name="description" content="Public Galway SME acquisition intelligence dashboard powered by CRO Open Services and public business listing data.">
+<meta name="robots" content="noindex, follow">
+<style>
+  :root {
+    --ink: #182033;
+    --muted: #667085;
+    --line: #d9dee8;
+    --paper: #f7f8fa;
+    --surface: #ffffff;
+    --navy: #001540;
+    --gold: #b9943d;
+    --green: #25765c;
+    --amber: #9a6a12;
+    --red: #a43b3b;
+    --shadow: 0 18px 48px rgba(20, 32, 52, 0.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  a { color: inherit; }
+
+  .shell {
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .topbar {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .brand {
+    display: grid;
+    gap: 3px;
+  }
+
+  .brand strong {
+    color: var(--navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .brand span {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .button {
+    min-height: 38px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font: inherit;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .button.primary {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: white;
+  }
+
+  main {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 24px 54px;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    gap: 22px;
+    align-items: stretch;
+    margin-bottom: 22px;
+  }
+
+  .intro, .status-panel, .section {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .intro {
+    padding: 28px;
+  }
+
+  h1 {
+    margin: 0 0 10px;
+    color: var(--navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 4vw, 54px);
+    line-height: 1.02;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .lede {
+    max-width: 760px;
+    color: var(--muted);
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .status-panel {
+    padding: 22px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .status-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+  }
+
+  .status-line:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .label {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .value {
+    color: var(--navy);
+    font-weight: 650;
+    text-align: right;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .metric {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .metric .number {
+    color: var(--navy);
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 720;
+    margin-bottom: 8px;
+  }
+
+  .metric .caption {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 6px;
+    min-height: 38px;
+    padding: 8px 11px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+  }
+
+  .tab.active {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: white;
+  }
+
+  .search {
+    width: min(360px, 100%);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 6px;
+    min-height: 38px;
+    padding: 8px 11px;
+    font: inherit;
+    font-size: 13px;
+  }
+
+  .section {
+    overflow: hidden;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: var(--navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 940px;
+  }
+
+  th, td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: #fbfcfd;
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 680;
+  }
+
+  td {
+    color: var(--ink);
+    font-size: 13px;
+  }
+
+  tr:last-child td { border-bottom: 0; }
+
+  .company {
+    display: grid;
+    gap: 4px;
+  }
+
+  .company a {
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 680;
+    text-decoration: none;
+  }
+
+  .company a:hover { text-decoration: underline; }
+
+  .subtle {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .score {
+    display: inline-grid;
+    place-items: center;
+    min-width: 42px;
+    height: 30px;
+    border-radius: 6px;
+    background: #eff7f3;
+    color: var(--green);
+    font-weight: 720;
+  }
+
+  .decision {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #f5f1e7;
+    color: var(--amber);
+    font-size: 12px;
+  }
+
+  .decision.target { background: #eff7f3; color: var(--green); }
+  .decision.unlikely_fit { background: #fbefef; color: var(--red); }
+
+  .empty, .error {
+    padding: 28px;
+    color: var(--muted);
+  }
+
+  .error {
+    color: var(--red);
+  }
+
+  @media (max-width: 900px) {
+    .topbar, .toolbar, .section-head {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .search {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .topbar, main {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .intro {
+      padding: 22px;
+    }
+
+    .metrics {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <strong>Principia Capital Partners</strong>
+        <span>Galway SME acquisition intelligence</span>
+      </div>
+      <div class="top-actions">
+        <a class="button" href="/">Main site</a>
+        <a class="button primary" href="data/galway-sme-dashboard.json">JSON data</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="intro">
+        <h1>Galway SME Intelligence Dashboard</h1>
+        <p class="lede">CRO Open Services, brokered sale listings, and public enrichment signals are consolidated into one acquisition-screening view with a dedicated web-scraped landscaping businesses section.</p>
+      </div>
+      <aside class="status-panel" aria-label="Run status">
+        <div class="status-line">
+          <span class="label">Data status</span>
+          <span class="value" id="data-status">Loading</span>
+        </div>
+        <div class="status-line">
+          <span class="label">Run started</span>
+          <span class="value" id="run-started">-</span>
+        </div>
+        <div class="status-line">
+          <span class="label">Generated</span>
+          <span class="value" id="generated-at">-</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="metrics" aria-label="Dashboard metrics">
+      <div class="metric"><div class="number" id="metric-active">0</div><div class="caption">Active records</div></div>
+      <div class="metric"><div class="number" id="metric-cro">0</div><div class="caption">CRO records</div></div>
+      <div class="metric"><div class="number" id="metric-targets">0</div><div class="caption">Target SMEs</div></div>
+      <div class="metric"><div class="number" id="metric-brokered">0</div><div class="caption">Brokered targets</div></div>
+      <div class="metric"><div class="number" id="metric-landscaping">0</div><div class="caption">Landscaping businesses</div></div>
+    </section>
+
+    <div class="toolbar">
+      <div class="tabs" role="tablist" aria-label="Dashboard sections">
+        <button class="tab active" data-section="cro_targets">CRO records</button>
+        <button class="tab" data-section="landscaping_businesses_galway">Landscaping Businesses in Galway</button>
+        <button class="tab" data-section="brokered_targets">Brokered targets</button>
+      </div>
+      <input class="search" id="search" type="search" placeholder="Search companies, sectors, towns">
+    </div>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 id="section-title">CRO targets</h2>
+        <span class="subtle" id="section-count">0 records</span>
+      </div>
+      <div class="table-wrap" id="table-wrap"></div>
+    </section>
+  </main>
+</div>
+
+<script>
+  const state = {
+    data: null,
+    section: "cro_targets",
+    query: ""
+  };
+
+  const labels = {
+    cro_targets: "CRO records",
+    landscaping_businesses_galway: "Landscaping Businesses in Galway",
+    brokered_targets: "Brokered targets"
+  };
+
+  const escapeHtml = (value) => String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+  const formatDate = (value) => {
+    if (!value) return "-";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return date.toLocaleString("en-IE", {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  };
+
+  const setText = (id, value) => {
+    document.getElementById(id).textContent = value;
+  };
+
+  const searchable = (row) => [
+    row.title,
+    row.town,
+    row.county,
+    row.category,
+    row.summary,
+    row.company_status,
+    row.evidence_text,
+    row.sector_search_term,
+    ...(row.reasons || []),
+    ...(row.watchouts || [])
+  ].join(" ").toLowerCase();
+
+  const renderMetrics = () => {
+    const summary = state.data?.summary || {};
+    setText("metric-active", summary.active_total || 0);
+    setText("metric-cro", summary.cro_active_total || 0);
+    setText("metric-targets", summary.active_targets || 0);
+    setText("metric-brokered", summary.brokered_target_total || 0);
+    setText("metric-landscaping", summary.landscaping_total || 0);
+    setText("run-started", formatDate(state.data?.run_started_at));
+    setText("generated-at", formatDate(state.data?.generated_at));
+  };
+
+  const rowHtml = (row) => {
+    const decision = row.fit_decision || "unscored";
+    const reasons = row.evidence_text || (row.reasons || []).slice(0, 2).join("; ");
+    const contact = [row.website, row.phone, row.email].filter(Boolean).join(" | ");
+    const url = row.detail_url || "#";
+    const micro = row.micro_engine?.score ?? "-";
+    const macro = row.macro_engine?.score ?? "-";
+    return `
+      <tr>
+        <td><span class="score">${escapeHtml(row.fit_score || 0)}</span></td>
+        <td>${escapeHtml(micro)}</td>
+        <td>${escapeHtml(macro)}</td>
+        <td><span class="decision ${escapeHtml(decision)}">${escapeHtml(decision || "unscored")}</span></td>
+        <td>
+          <div class="company">
+            <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(row.title || "Untitled")}</a>
+            <span class="subtle">${escapeHtml([row.town, row.county].filter(Boolean).join(", ") || "Galway")}</span>
+          </div>
+        </td>
+        <td>${escapeHtml(row.category || "Unknown")}</td>
+        <td>${escapeHtml(row.company_age_years ?? "-")}</td>
+        <td>${escapeHtml(row.company_status || "-")}</td>
+        <td>${escapeHtml(contact || "-")}</td>
+        <td>${escapeHtml(reasons || row.summary || "-")}</td>
+        <td>${escapeHtml(formatDate(row.last_seen))}</td>
+      </tr>
+    `;
+  };
+
+  const renderTable = () => {
+    const rows = state.data?.sections?.[state.section] || [];
+    const query = state.query.trim().toLowerCase();
+    const filtered = query ? rows.filter((row) => searchable(row).includes(query)) : rows;
+    setText("section-title", labels[state.section]);
+    setText("section-count", `${filtered.length} record${filtered.length === 1 ? "" : "s"}`);
+    const wrap = document.getElementById("table-wrap");
+    if (!filtered.length) {
+      const message = query
+        ? "No records match the current search. Clear the search box to see this section."
+        : state.section === "landscaping_businesses_galway"
+        ? "No web-scraped Galway landscaping businesses found in the current run."
+        : "No records match this view.";
+      wrap.innerHTML = `<div class="empty">${escapeHtml(message)}</div>`;
+      return;
+    }
+    wrap.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Micro</th>
+            <th>Macro</th>
+            <th>Decision</th>
+            <th>Company</th>
+            <th>Sector</th>
+            <th>Age</th>
+            <th>Status</th>
+            <th>Contact</th>
+            <th>Evidence</th>
+            <th>Seen</th>
+          </tr>
+        </thead>
+        <tbody>${filtered.map(rowHtml).join("")}</tbody>
+      </table>
+    `;
+  };
+
+  const render = () => {
+    renderMetrics();
+    renderTable();
+  };
+
+  document.querySelectorAll(".tab").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach((tab) => tab.classList.remove("active"));
+      button.classList.add("active");
+      state.section = button.dataset.section;
+      state.query = "";
+      document.getElementById("search").value = "";
+      renderTable();
+    });
+  });
+
+  document.getElementById("search").addEventListener("input", (event) => {
+    state.query = event.target.value;
+    renderTable();
+  });
+
+  fetch("data/galway-sme-dashboard.json", { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then((data) => {
+      state.data = data;
+      setText("data-status", "Live JSON loaded");
+      render();
+    })
+    .catch((error) => {
+      setText("data-status", "Data unavailable");
+      document.getElementById("table-wrap").innerHTML = `<div class="error">Dashboard data could not be loaded: ${escapeHtml(error.message)}</div>`;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Principia Public Site Mirrors</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --ink: #142033;
+      --muted: #667085;
+      --line: #d9dee8;
+      --navy: #001540;
+      --gold: #b9943d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+    h1 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.06;
+    }
+    .lead {
+      max-width: 760px;
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    a.card {
+      display: grid;
+      gap: 10px;
+      min-height: 168px;
+      padding: 20px;
+      color: inherit;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    a.card:hover {
+      border-color: var(--gold);
+    }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .note {
+      margin-top: 30px;
+      padding: 16px 18px;
+      background: #eef2f7;
+      border: 1px solid var(--line);
+      color: #344054;
+      font-size: 14px;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Principia public site mirrors</h1>
+    <p class="lead">These are static, free-hosted mirrors published from the RnDprincipiacapital GitHub Pages repository. They are intended to remove dependence on Benjamin's laptop and provide a public fallback while DNS and account ownership are transferred.</p>
+
+    <section class="grid" aria-label="Public site mirrors">
+      <a class="card" href="principia-capital/">
+        <span class="eyebrow">Corporate</span>
+        <h2>Principia Capital</h2>
+        <p>Static mirror of the corporate website currently served from Firebase/custom domain hosting.</p>
+      </a>
+      <a class="card" href="../">
+        <span class="eyebrow">Research</span>
+        <h2>Principia Research</h2>
+        <p>The root GitHub Pages site already serves the research website and custom domain.</p>
+      </a>
+      <a class="card" href="real-estate/">
+        <span class="eyebrow">Dashboard</span>
+        <h2>Real Estate</h2>
+        <p>Static dashboard mirror with its public JSON snapshot.</p>
+      </a>
+      <a class="card" href="house/">
+        <span class="eyebrow">Dashboard</span>
+        <h2>House Impact</h2>
+        <p>Static dashboard mirror with its public JSON snapshot.</p>
+      </a>
+      <a class="card" href="galway-sme/">
+        <span class="eyebrow">Dashboard</span>
+        <h2>Galway SME</h2>
+        <p>Static dashboard mirror with its public JSON snapshot.</p>
+      </a>
+      <a class="card" href="gold/">
+        <span class="eyebrow">Evidence</span>
+        <h2>Gold / XAUUSD</h2>
+        <p>Static evidence and data mirror. The live Cloud Run backend/frontend still requires Google Cloud ownership.</p>
+      </a>
+      <a class="card" href="https://rndprincipiacapital.github.io/sme-dual-engine-public/">
+        <span class="eyebrow">SME</span>
+        <h2>SME Dual Engine</h2>
+        <p>Already hosted from the org-owned public GitHub Pages repository.</p>
+      </a>
+    </section>
+
+    <div class="note">
+      Current free mirror base: <code>https://www.principiaresearch.ie/public-sites/</code>. Custom domains such as <code>principiacapital.ie</code> require DNS changes by the domain owner before they can point to GitHub Pages.
+    </div>
+  </main>
+</body>
+</html>

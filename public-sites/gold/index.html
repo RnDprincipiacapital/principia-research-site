@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Gold / XAUUSD Static Evidence Mirror</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --ink: #142033;
+      --muted: #667085;
+      --line: #d9dee8;
+      --navy: #001540;
+      --gold: #b9943d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+    h1 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+    p { color: var(--muted); }
+    .panel {
+      margin-top: 24px;
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+    li { margin: 8px 0; }
+    a { color: var(--navy); }
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="tag">Static mirror</span>
+    <h1>Gold / XAUUSD evidence and data</h1>
+    <p>This GitHub Pages mirror preserves the public static data and documents. It is not a replacement for the live Cloud Run frontend or backend, which still require Google Cloud ownership, billing, provider credentials, and deployment access.</p>
+
+    <section class="panel">
+      <h2>Available files</h2>
+      <ul>
+        <li><a href="data/gold-dashboard.json">Static dashboard JSON snapshot</a></li>
+        <li><a href="docs/DashboardProjectBrief.pdf">Dashboard project brief PDF</a></li>
+        <li><a href="docs/Principia_Gold_Signal_Checklist.pdf">Principia Gold Signal Checklist PDF</a></li>
+        <li><a href="docs/Principia_XAUUSD_Trading_Manual.pdf">Principia XAUUSD Trading Manual PDF</a></li>
+        <li><a href="docs/principia_xauusd_roadmap.pdf">Principia XAUUSD Roadmap PDF</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

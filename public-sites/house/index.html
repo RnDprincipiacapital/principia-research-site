@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>House Government Impact Dashboard | Principia Capital</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --surface: #ffffff;
+      --surface-2: #eef1f5;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --navy: #001540;
+      --gold: #b9943d;
+      --red: #a83d3d;
+      --amber: #936816;
+      --green: #24785f;
+      --blue: #305c9b;
+      --shadow: 0 18px 48px rgba(23, 32, 51, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .shell { min-height: 100vh; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 246, 248, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(185, 148, 61, 0.45);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      background: var(--navy);
+      border-radius: 6px;
+      flex: none;
+      font: 600 18px/1 Georgia, serif;
+    }
+
+    .brand-copy { min-width: 0; }
+
+    .brand-copy strong {
+      display: block;
+      color: var(--navy);
+      font: 600 18px/1.2 Georgia, "Times New Roman", serif;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .status-strip {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 3px rgba(36, 120, 95, 0.12);
+    }
+
+    .dot.error {
+      background: var(--red);
+      box-shadow: 0 0 0 3px rgba(168, 61, 61, 0.12);
+    }
+
+    main {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .metric {
+      min-height: 92px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      display: grid;
+      align-content: space-between;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric strong {
+      color: var(--navy);
+      font-size: 27px;
+      line-height: 1;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(240px, 1.2fr) repeat(4, minmax(150px, 0.6fr));
+      gap: 10px;
+      align-items: center;
+      margin: 0 0 16px;
+    }
+
+    input, select, button {
+      font: inherit;
+    }
+
+    .control {
+      width: 100%;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      color: var(--ink);
+      padding: 0 12px;
+      outline: none;
+    }
+
+    .control:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(48, 92, 155, 0.12);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .tab {
+      height: 38px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 7px;
+      padding: 0 12px;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .panel-head {
+      min-height: 58px;
+      border-bottom: 1px solid var(--line);
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .panel-head h1,
+    .panel-head h2 {
+      margin: 0;
+      color: var(--navy);
+      font: 600 18px/1.2 Georgia, "Times New Roman", serif;
+    }
+
+    .count-label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .record-list {
+      display: grid;
+    }
+
+    .record {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 10px;
+    }
+
+    .record:last-child { border-bottom: 0; }
+
+    .record-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .record h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.3;
+    }
+
+    .record h3 a {
+      text-decoration: none;
+    }
+
+    .record h3 a:hover {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+
+    .meta {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tag.high {
+      color: var(--red);
+      border-color: rgba(168, 61, 61, 0.28);
+      background: rgba(168, 61, 61, 0.08);
+    }
+
+    .tag.medium {
+      color: var(--amber);
+      border-color: rgba(147, 104, 22, 0.28);
+      background: rgba(147, 104, 22, 0.08);
+    }
+
+    .tag.low {
+      color: var(--green);
+      border-color: rgba(36, 120, 95, 0.24);
+      background: rgba(36, 120, 95, 0.08);
+    }
+
+    .score {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 700;
+      background: #fbfcfd;
+      flex: none;
+    }
+
+    .excerpt {
+      color: #3f4858;
+      margin: 0;
+      max-width: 1100px;
+    }
+
+    .rationale {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .rationale li::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin: 0 8px 2px 0;
+    }
+
+    aside {
+      display: grid;
+      gap: 16px;
+      position: sticky;
+      top: 96px;
+    }
+
+    .source-list {
+      padding: 8px 0;
+    }
+
+    .source {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 3px;
+    }
+
+    .source:last-child { border-bottom: 0; }
+
+    .source strong {
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .source span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .empty {
+      padding: 34px 18px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .error {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border: 1px solid rgba(168, 61, 61, 0.3);
+      background: rgba(168, 61, 61, 0.08);
+      color: var(--red);
+      border-radius: 8px;
+      display: none;
+    }
+
+    @media (max-width: 1180px) {
+      .summary-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; }
+    }
+
+    @media (max-width: 720px) {
+      .topbar { grid-template-columns: 1fr; align-items: start; }
+      .status-strip { justify-content: flex-start; }
+      main { padding: 16px; }
+      .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .toolbar { grid-template-columns: 1fr; }
+      .record-top { display: grid; }
+      .score { width: 100%; height: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="topbar">
+        <div class="brand">
+          <div class="mark">H</div>
+          <div class="brand-copy">
+            <strong>House Government Impact Dashboard</strong>
+            <span>Irish bills, policy actions and regulator updates</span>
+          </div>
+        </div>
+        <div class="status-strip">
+          <span class="pill"><span id="status-dot" class="dot"></span><span id="source-status">Sources pending</span></span>
+          <span class="pill" id="generated-at">Generated: pending</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="error" id="load-error"></div>
+
+      <section class="summary-grid" aria-label="Dashboard summary">
+        <div class="metric"><span>Total records</span><strong id="metric-total">0</strong></div>
+        <div class="metric"><span>High impact</span><strong id="metric-high">0</strong></div>
+        <div class="metric"><span>Recently changed</span><strong id="metric-changed">0</strong></div>
+        <div class="metric"><span>Bills</span><strong id="metric-bills">0</strong></div>
+        <div class="metric"><span>Scheduled</span><strong id="metric-scheduled">0</strong></div>
+        <div class="metric"><span>Outcomes</span><strong id="metric-outcomes">0</strong></div>
+        <div class="metric"><span>Actions</span><strong id="metric-actions">0</strong></div>
+        <div class="metric"><span>Regulators</span><strong id="metric-regulators">0</strong></div>
+        <div class="metric"><span>Source errors</span><strong id="metric-errors">0</strong></div>
+      </section>
+
+      <section class="toolbar" aria-label="Filters">
+        <input id="search" class="control" type="search" placeholder="Search title, source, rationale or excerpt">
+        <select id="severity-filter" class="control" aria-label="Severity">
+          <option value="">All severities</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <select id="area-filter" class="control" aria-label="Impact area">
+          <option value="">All impact areas</option>
+        </select>
+        <select id="source-filter" class="control" aria-label="Source">
+          <option value="">All sources</option>
+        </select>
+        <select id="date-filter" class="control" aria-label="Date">
+          <option value="">Any date</option>
+          <option value="7">Last 7 days</option>
+          <option value="30">Last 30 days</option>
+          <option value="90">Last 90 days</option>
+        </select>
+      </section>
+
+      <nav class="tabs" aria-label="Dashboard views" id="tabs"></nav>
+
+      <div class="layout">
+        <section class="panel">
+          <div class="panel-head">
+            <h1 id="active-title">High Impact</h1>
+            <span class="count-label" id="result-count">0 records</span>
+          </div>
+          <div class="record-list" id="record-list"></div>
+        </section>
+
+        <aside>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Source Health</h2>
+            </div>
+            <div class="source-list" id="source-list"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Impact Areas</h2>
+            </div>
+            <div class="source-list" id="area-list"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DATA_URL = "data/house-dashboard.json";
+    const VIEWS = [
+      ["high_impact", "High Impact"],
+      ["recently_changed", "Recently Changed"],
+      ["bills_in_motion", "Bills in Motion"],
+      ["scheduled_debates", "Scheduled Debates"],
+      ["recent_outcomes", "Recent Outcomes"],
+      ["government_actions", "Government Actions"],
+      ["regulator_updates", "Regulator Updates"]
+    ];
+
+    let dashboard = null;
+    let activeView = "high_impact";
+
+    const $ = (id) => document.getElementById(id);
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function formatDate(value) {
+      if (!value) return "Date pending";
+      const parsed = new Date(value);
+      if (Number.isNaN(parsed.getTime())) return value;
+      return new Intl.DateTimeFormat("en-IE", { day: "2-digit", month: "short", year: "numeric" }).format(parsed);
+    }
+
+    function latestDate(record) {
+      return record.last_changed_at || record.updated_at || record.published_at || record.last_seen || record.first_seen;
+    }
+
+    function recordSearchText(record) {
+      return [
+        record.title,
+        record.source_name,
+        record.source_type,
+        record.status,
+        record.category,
+        record.chamber,
+        record.excerpt,
+        ...(record.impact_areas || []),
+        ...(record.impact_labels || []),
+        ...(record.rationale || [])
+      ].join(" ").toLowerCase();
+    }
+
+    function uniqueSorted(values) {
+      return Array.from(new Set(values.filter(Boolean))).sort((a, b) => a.localeCompare(b));
+    }
+
+    function updateFilterOptions(records) {
+      const currentArea = $("area-filter").value;
+      const currentSource = $("source-filter").value;
+      const areas = uniqueSorted(records.flatMap((record) => record.impact_areas || []));
+      const sources = uniqueSorted(records.map((record) => record.source_name));
+      $("area-filter").innerHTML = '<option value="">All impact areas</option>' + areas.map((area) => `<option value="${escapeHtml(area)}">${escapeHtml(area)}</option>`).join("");
+      $("source-filter").innerHTML = '<option value="">All sources</option>' + sources.map((source) => `<option value="${escapeHtml(source)}">${escapeHtml(source)}</option>`).join("");
+      $("area-filter").value = areas.includes(currentArea) ? currentArea : "";
+      $("source-filter").value = sources.includes(currentSource) ? currentSource : "";
+    }
+
+    function filteredRecords() {
+      if (!dashboard) return [];
+      const query = $("search").value.trim().toLowerCase();
+      const severity = $("severity-filter").value;
+      const area = $("area-filter").value;
+      const source = $("source-filter").value;
+      const days = Number($("date-filter").value || 0);
+      const cutoff = days ? Date.now() - days * 24 * 60 * 60 * 1000 : null;
+      const records = dashboard.sections?.[activeView] || [];
+      return records.filter((record) => {
+        if (query && !recordSearchText(record).includes(query)) return false;
+        if (severity && record.severity !== severity) return false;
+        if (area && !(record.impact_areas || []).includes(area)) return false;
+        if (source && record.source_name !== source) return false;
+        if (cutoff) {
+          const parsed = new Date(latestDate(record));
+          if (Number.isNaN(parsed.getTime()) || parsed.getTime() < cutoff) return false;
+        }
+        return true;
+      });
+    }
+
+    function renderTabs() {
+      $("tabs").innerHTML = VIEWS.map(([key, label]) => {
+        const count = dashboard?.sections?.[key]?.length || 0;
+        return `<button class="tab ${key === activeView ? "active" : ""}" data-view="${key}">${escapeHtml(label)} (${count})</button>`;
+      }).join("");
+      document.querySelectorAll(".tab").forEach((button) => {
+        button.addEventListener("click", () => {
+          activeView = button.dataset.view;
+          render();
+        });
+      });
+    }
+
+    function renderSummary() {
+      const summary = dashboard?.summary || {};
+      $("metric-total").textContent = summary.total_records || 0;
+      $("metric-high").textContent = summary.high_impact || 0;
+      $("metric-changed").textContent = summary.recently_changed || 0;
+      $("metric-bills").textContent = summary.bills_in_motion || 0;
+      $("metric-scheduled").textContent = summary.scheduled_debates || 0;
+      $("metric-outcomes").textContent = summary.recent_outcomes || 0;
+      $("metric-actions").textContent = summary.government_actions || 0;
+      $("metric-regulators").textContent = summary.regulator_updates || 0;
+      $("metric-errors").textContent = summary.sources_error || 0;
+      $("generated-at").textContent = `Generated: ${formatDate(dashboard?.generated_at)}`;
+      $("source-status").textContent = `${summary.sources_ok || 0} ok / ${summary.sources_error || 0} errors`;
+      $("status-dot").classList.toggle("error", Boolean(summary.sources_error));
+    }
+
+    function renderRecords() {
+      const records = filteredRecords();
+      const title = VIEWS.find(([key]) => key === activeView)?.[1] || "Records";
+      $("active-title").textContent = title;
+      $("result-count").textContent = `${records.length} ${records.length === 1 ? "record" : "records"}`;
+      if (!records.length) {
+        $("record-list").innerHTML = '<div class="empty">No records match the current filters.</div>';
+        return;
+      }
+      $("record-list").innerHTML = records.map((record) => {
+        const areas = (record.impact_areas || []).map((area) => `<span class="tag">${escapeHtml(area)}</span>`).join("");
+        const labels = (record.impact_labels || []).map((label) => `<span class="tag">${escapeHtml(label)}</span>`).join("");
+        const rationale = (record.rationale || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+        const changeMeta = record.change_count > 0
+          ? `<span>${escapeHtml(record.change_count)} changes</span><span>Changed ${escapeHtml(formatDate(record.last_changed_at))}</span>`
+          : "";
+        return `
+          <article class="record">
+            <div class="record-top">
+              <div>
+                <h3><a href="${escapeHtml(record.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(record.title)}</a></h3>
+                <div class="meta">
+                  <span>${escapeHtml(record.source_name)}</span>
+                  <span>${escapeHtml(record.category || record.source_type)}</span>
+                  <span>${escapeHtml(record.status || "Status pending")}</span>
+                  <span>${escapeHtml(formatDate(latestDate(record)))}</span>
+                  ${changeMeta}
+                </div>
+              </div>
+              <div class="score" title="Impact score">${escapeHtml(record.score)}</div>
+            </div>
+            <div class="meta">
+              <span class="tag ${escapeHtml(record.severity)}">${escapeHtml(record.severity)}</span>
+              ${areas}
+              ${labels}
+            </div>
+            <p class="excerpt">${escapeHtml(record.excerpt || "No excerpt available.")}</p>
+            <ul class="rationale">${rationale}</ul>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderSourceHealth() {
+      const sources = dashboard?.source_health || [];
+      if (!sources.length) {
+        $("source-list").innerHTML = '<div class="empty">No source runs yet.</div>';
+        return;
+      }
+      $("source-list").innerHTML = sources.map((source) => `
+        <div class="source">
+          <strong>${escapeHtml(source.source_name)}</strong>
+          <span>${escapeHtml(source.status)} · ${escapeHtml(source.item_count)} items · ${escapeHtml(formatDate(source.fetched_at))}</span>
+          ${source.error ? `<span>${escapeHtml(source.error)}</span>` : ""}
+        </div>
+      `).join("");
+    }
+
+    function renderAreaSummary() {
+      const counts = {};
+      for (const record of dashboard?.records || []) {
+        for (const area of record.impact_areas || []) {
+          counts[area] = (counts[area] || 0) + 1;
+        }
+      }
+      const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      if (!entries.length) {
+        $("area-list").innerHTML = '<div class="empty">No impact areas yet.</div>';
+        return;
+      }
+      $("area-list").innerHTML = entries.map(([area, count]) => `
+        <div class="source">
+          <strong>${escapeHtml(area)}</strong>
+          <span>${escapeHtml(count)} records</span>
+        </div>
+      `).join("");
+    }
+
+    function render() {
+      const allRecords = dashboard?.records || [];
+      updateFilterOptions(allRecords);
+      renderTabs();
+      renderSummary();
+      renderRecords();
+      renderSourceHealth();
+      renderAreaSummary();
+    }
+
+    async function load() {
+      try {
+        const response = await fetch(DATA_URL, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        dashboard = await response.json();
+        render();
+      } catch (error) {
+        $("load-error").style.display = "block";
+        $("load-error").textContent = `Dashboard data could not be loaded: ${error.message}`;
+      }
+    }
+
+    ["search", "severity-filter", "area-filter", "source-filter", "date-filter"].forEach((id) => {
+      $(id).addEventListener("input", renderRecords);
+      $(id).addEventListener("change", renderRecords);
+    });
+
+    load();
+  </script>
+</body>
+</html>
